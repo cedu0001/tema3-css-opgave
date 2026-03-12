@@ -1,13 +1,16 @@
 ---
 import "../styles/main.css";
+import CtaVariant from "@components/CtaVariant.astro";
 ---
 
 <footer>
 	<div>
-		<p class="lato-regular-16">STAY UPDATED</p>
+		<p class="lato-regular-16 yellow-text">STAY UPDATED</p>
 		<h3>Subscribe Our Newsletter</h3>
 		<p class="lato-regular-16">
-			Build stronger Customer Relationships with <span>Consultalk</span>
+			Build stronger Customer Relationships with <span class="yellow-text"
+				>Consultalk</span
+			>
 		</p>
 
 		<form>
@@ -17,69 +20,98 @@ import "../styles/main.css";
 				name="email"
 				placeholder="your mail address"
 			/>
-			<input type="submit" value="Subscribe" id="submit" />
+			<CtaVariant>Subscribe</CtaVariant>
 		</form>
 	</div>
-	<hr />
+
+	<hr class="full-width" />
+
 	<div class="flex-row">
-		<h4>Ask<span>Experts</span></h4>
+		<h4>Ask<span class="yellow-text">Experts</span></h4>
 		<p class="lato-regular-16">©2025 Consultalk. All rights reserved</p>
 		<p class="lato-regular-16">Terms of Service | Privacy Policy</p>
 	</div>
+
+	<style>
+		@layer components {
+			h3,
+			h4 {
+				color: var(--color-on-ui-primary);
+			}
+
+			.yellow-text {
+				color: var(--color-action);
+			}
+		}
+
+		footer {
+			padding: var(--space-l) 0px;
+			background-color: var(--color-ui-primary);
+
+			div:nth-child(1) {
+				padding: var(--space-m);
+				text-align: center;
+
+				p,
+				h3 {
+					margin-bottom: var(--space-s);
+				}
+
+				form input {
+					border-radius: var(--border-42);
+					padding: var(--space-s) var(--space-l);
+					border: 1px solid var(--color-text-weak);
+				}
+			}
+
+			div:nth-child(2) {
+				margin-top: var(--space-m);
+				margin-bottom: var(--space-m);
+			}
+
+			p:nth-child(3) span {
+				font-family: lato-bold;
+			}
+		}
+
+		hr {
+			width: 100%;
+			height: 1px;
+			background-color: var(--color-surface-elevated-transparent);
+			border: none;
+			margin: var(--space-s) 0;
+		}
+
+		.flex-row {
+			display: flex;
+			justify-content: space-evenly;
+			flex-direction: row;
+			flex-wrap: wrap;
+			flex: 0 100px;
+			gap: 1rem;
+			margin: var(--space-m) 0px;
+			align-items: center;
+		}
+
+		@media (width > 500px) {
+			#email {
+				margin-right: var(--space-s);
+			}
+		}
+
+		@media (width < 500px) {
+			.flex-row {
+				flex-direction: column;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+
+				input {
+					margin-bottom: var(--space-s);
+				}
+			}
+		}
+	</style>
 </footer>
-
-<style>
-	/* p,
-	h4,
-	h3,
-	input {
-		color: white;
-	}
-
-	section {
-		padding: 20px 0px;
-		background-color: var(--color-ui-primary);
-
-		div:nth-child(1) {
-			padding: 20px;
-			text-align: center;
-
-			form #email {
-				border-radius: 104px;
-				padding: 10px;
-				border: 1px solid #99a1af;
-			}
-
-			form input:nth-child(2) {
-				border-radius: 104px;
-				padding: 10px;
-				border: 1px solid #99a1af;
-				background-color: #fbc336;
-				cursor: pointer;
-			}
-		}
-
-		div:nth-child(2) {
-			margin-top: 50px;
-			margin-bottom: 50px;
-		}
-	}
-
-	hr {
-		width: 100%;
-		height: 1px;
-		background-color: #ffffff;
-		border: none;
-		margin: 20px 0;
-	}
-
-	.flex-row {
-		display: flex;
-		justify-content: space-evenly;
-		flex-direction: row;
-		flex-wrap: wrap;
-		flex: 0 100px;
-		gap: 1rem;
-		margin: 50px 0px;
-	} */
-</style>
