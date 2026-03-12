@@ -6,7 +6,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 ---
 
 <article>
-  <header>
+  <section>
     <DynamicImage imagePath={image} altText={caseName} />
     <div class="case-details">
       <dl>
@@ -25,10 +25,10 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       </dl>
       <a href="#0" class="button">{buttonLabel}</a>
     </div>
-  </header>
+  </section>
   {
     caseStudy.sections.map((section) => (
-      <section>
+      <section class="flow">
         {caseStudy.sections[0] === section ? (
           <h2>{section.title}</h2>
         ) : (
@@ -64,4 +64,10 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   }
 </article>
 
-<style></style>
+<style>
+  @layer components {
+    article {
+      margin: var(--space-s);
+    }
+  }
+</style>
