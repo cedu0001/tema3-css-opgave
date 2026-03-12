@@ -1,1 +1,24 @@
 /* Override styles here */
+
+.flow {
+    >*+* {
+        margin-block-start: var(--flow-space, 1em);
+    }
+    width: minmax(350px, 792px);
+margin-left: auto;
+       margin-right: auto;
+
+    h2 {
+        margin-top: var(--flow-space, 2lh);
+    }
+    h3 {
+       margin-top: var(--flow-space, 1.2lh);
+    }
+    img {
+       --flow-space: 3rlh;
+       margin-left: auto;
+       margin-right: auto;
+    }
+
+    margin-bottom: var(--flow-space, 5rlh);
+}
