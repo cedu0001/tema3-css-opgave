@@ -64,4 +64,21 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   }
 </article>
 
-<style></style>
+<style>
+  @layer components {
+    *+* {
+      margin-block-start: 1em;
+       ul {
+      margin-block: var(--space-l)
+    }
+    img {
+      margin-block: var(space-l);
+      opacity: 0.5;
+    }
+    }
+    section {
+      width: max(792px);
+      margin: 0 auto;
+    }
+  }
+</style>
