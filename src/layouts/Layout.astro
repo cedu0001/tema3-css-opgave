@@ -1,5 +1,6 @@
 ---
 import "@styles/main.css";
+import Footer from "@layouts/Footer.astro";
 ---
 
 <html lang="en">
@@ -14,7 +15,11 @@ import "@styles/main.css";
     </style>
   </head>
   <body>
-    <slot />
+    <header></header>
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
 

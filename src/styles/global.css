@@ -1,7 +1,27 @@
+
 /* Globale styles her */
-main {
-	display: grid;
-	grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+ @font-face {
+    font-family: cabin-bold;
+    src: url(../assets/fonts/Cabin-Bold.ttf);
+  }
+   @font-face {
+    font-family: cabin-semibold;
+    src: url(../assets/fonts/Cabin-SemiBold.ttf);
+  }
+   @font-face {
+    font-family: cabin-regular;
+    src: url(../assets/fonts/Cabin-Regular.ttf);
+  }
+   @font-face {
+    font-family: lato-regular;
+    src: url(../assets/fonts/Lato-Regular.ttf);
+  }
+  @font-face {
+    font-family: lato-bold;
+    src: url(../assets/fonts/Lato-Bold.ttf);
+  }
+
+body {
 
 	h1 {
 		font-size: var(--step-5);
@@ -56,4 +76,16 @@ main {
 		font-family: lato-bold;
 		color: var(--color-text);
 	}
+}
+main, header, footer {
+	display: grid;
+	grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+
+	>*{
+		grid-column: 2;
+	}
+}
+.full-width {
+	grid-column: 1/-1;
+	padding-inline: max(1rem, 50% - 1200px / 2);
 }
