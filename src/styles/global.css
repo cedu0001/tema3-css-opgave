@@ -1,8 +1,5 @@
 /* Globale styles her */
-main {
-	display: grid;
-	grid-template-columns: 1fr minmax(0, 1200px) 1fr;
-
+body {
 	h1 {
 		font-size: var(--step-5);
 		font-family: cabin-bold;
@@ -56,4 +53,15 @@ main {
 		font-family: lato-bold;
 		color: var(--color-text);
 	}
+}
+main {
+    display: grid;
+	grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+    >*{
+        grid-column: 2;
+    }
+}
+.full {
+    grid-column: 1 / -1;
+    padding-inline: max(1rem, 50% - 1200px / 2);
 }
