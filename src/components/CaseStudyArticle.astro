@@ -3,6 +3,7 @@
 import DynamicImage from "@components/helpers/DynamicImage.astro";
 import caseStudy from "@data/caseStudy.json";
 const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
+import CTA from "@components/CtaVariant.astro"
 ---
 
 <article>
@@ -23,7 +24,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
           <dd class="date">{date}</dd>
         </div>
       </dl>
-      <a href="#0" class="button">{buttonLabel}</a>
+      <CTA href="#0" class="button">{buttonLabel}</>
     </div>
   </section>
   {
@@ -99,7 +100,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       img {
         border-radius: var(--border-20);
       }
-      @container (width < 550px) {
+      @container (width < 700px) {
         .case-details {
           display: flex;
           flex-direction: column;
