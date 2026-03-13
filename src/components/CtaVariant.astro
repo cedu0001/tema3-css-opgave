@@ -1,11 +1,12 @@
 ---
 const { href } = Astro.props;
+const { theme = "default" } = Astro.props;
 ---
 
-<a href={href}><slot /></a>
+<a href={href} data-surface={theme}><slot /></a>
 
 <style>
-	a {
+	a[data-surface="default"] {
 		border-radius: var(--border-42);
 		padding: var(--space-s) var(--space-l);
 		background-color: var(--color-action);
@@ -13,7 +14,11 @@ const { href } = Astro.props;
 		border: 3px solid var(--color-action);
 	}
 
-	[data-surface="white"] {
+	a[data-surface="white"] {
 		background-color: var(--color-surface-secondary);
+		border-radius: var(--border-42);
+		padding: var(--space-s) var(--space-l);
+		cursor: pointer;
+		border: 3px solid var(--color-surface-secondary);
 	}
 </style>
