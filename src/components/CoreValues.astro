@@ -1,0 +1,72 @@
+---
+import "../styles/main.css";
+import CtaVariant from "@components/CtaVariant.astro";
+const { value } = Astro.props;
+---
+
+<div class="full-width">
+	<section class="">
+		<p class="lato-regular-16">Growing with our Clients</p>
+		<div class="grid_3-1">
+			<div>
+				<h2>Our core values & principles</h2>
+				<!-- <h2>{value.title}</h2> -->
+				<p>
+					Capitalize on low hanging fruit to identify a ballpark value
+					added activity beta test. Override the digital divide with
+					additional from DevOps.
+				</p>
+			</div>
+			<CtaVariant data-surface="white">Get in touch</CtaVariant>
+		</div>
+
+		<div class="grid_1-1-1-1">
+			<div>
+				<p>hej</p>
+			</div>
+			<div>
+				<p>hej</p>
+			</div>
+			<div>
+				<p>hej</p>
+			</div>
+			<div>
+				<p>hej</p>
+			</div>
+		</div>
+	</section>
+</div>
+
+<style>
+	@layer components {
+		h2,
+		button {
+			color: var(--color-on-ui-primary);
+		}
+	}
+
+	div.full-width {
+		background-color: var(--color-ui-primary);
+		margin: 20px 0px;
+	}
+
+	section {
+		padding: var(--space-l) 0px;
+
+		.grid_3-1 {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			gap: 1em;
+		}
+
+		.grid_1-1-1-1 {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1em;
+
+			div {
+				background-color: var(--color-surface-secondary);
+			}
+		}
+	}
+</style>

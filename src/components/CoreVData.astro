@@ -1,0 +1,17 @@
+---
+import CoreValues from "@components/CoreValues.astro";
+import coreValues from "@data/coreValues.json";
+---
+
+<div class="corevalues">
+	{coreValues.values.map((value) => <CoreValues value={value} />)}
+</div>
+
+<style>
+	@layer components {
+		.corevalues {
+			display: grid;
+			gap: 1rem;
+		}
+	}
+</style>
