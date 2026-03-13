@@ -81,16 +81,6 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       margin: auto;
       color: var(--color-neutrals-100);
       margin-top: -2rlh;
-
-      /*   &:before {
-        content: "";
-        position: absolute;
-        padding: var(--space-m);
-        background: var(--color-ui-primary);
-        border-radius: var(--border-20);
-        max-width: 90%;
-        margin: auto;
-      } */
     }
     .button {
       color: var(--color-neutrals-100);
@@ -105,8 +95,15 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       font-family: cabin-semibold;
     }
     section:not(.flow) {
+      container-type: inline-size;
       img {
         border-radius: var(--border-20);
+      }
+      @container (width < 550px) {
+        .case-details {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
   }
