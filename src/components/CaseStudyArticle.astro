@@ -69,5 +69,45 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     article {
       margin: var(--space-s);
     }
+    .case-details {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-m);
+      background: var(--color-ui-primary);
+      border-radius: var(--border-20);
+      max-width: 90%;
+      margin: auto;
+      color: var(--color-neutrals-100);
+      margin-top: -2rlh;
+
+      /*   &:before {
+        content: "";
+        position: absolute;
+        padding: var(--space-m);
+        background: var(--color-ui-primary);
+        border-radius: var(--border-20);
+        max-width: 90%;
+        margin: auto;
+      } */
+    }
+    .button {
+      color: var(--color-neutrals-100);
+    }
+    dl {
+      display: flex;
+      & > div {
+        margin: var(--space-s);
+      }
+    }
+    dt {
+      font-family: cabin-semibold;
+    }
+    section:not(.flow) {
+      img {
+        border-radius: var(--border-20);
+      }
+    }
   }
 </style>

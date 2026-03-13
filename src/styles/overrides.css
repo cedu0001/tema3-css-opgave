@@ -1,12 +1,12 @@
 /* Override styles here */
-
+@layer overrides {
 .flow {
+    max-width: 792px;
+    margin-left: auto;
+    margin-right: auto;
     >*+* {
         margin-block-start: var(--flow-space, 1em);
     }
-    width: minmax(350px, 792px);
-margin-left: auto;
-       margin-right: auto;
 
     h2 {
         margin-top: var(--flow-space, 2lh);
@@ -22,5 +22,4 @@ margin-left: auto;
 
     margin-bottom: var(--flow-space, 5rlh);
 }
-
-we testing again here. heeeelp
+}

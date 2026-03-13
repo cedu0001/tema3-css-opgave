@@ -5,6 +5,29 @@ import CaseStudyArticle from "@components/CaseStudyArticle.astro";
 
 <Layout>
   <!-- Banner -->
+  <section class="banner">
+    <p class="lato-regular-16">CASE STUDIES</p>
+    <h1>Taxes & Efficiency</h1>
+    <p class="lato-regular-16">
+      Our achievements reflect the close collaboration between our expert teams
+      and our esteemed clientele. We cultivate a workplace that champions peak
+      performance and guarantees client satisfaction.
+    </p>
+  </section>
 
   <CaseStudyArticle />
 </Layout>
+
+<style>
+  @layer components {
+    .banner {
+      text-align: center;
+      margin: var(--space-s);
+      p {
+        max-width: 700px;
+        margin: auto;
+      }
+      margin-bottom: 100px;
+    }
+  }
+</style>
