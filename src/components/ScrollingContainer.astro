@@ -7,7 +7,7 @@ import financialProjections from "@data/financialProjections.json";
   {
     financialProjections.values.map((card) => (
       <li>
-        <DynamicIcon name="{card.icon}" class="financial-icon"/>
+        <DynamicIcon name={card.icon} class="financial-icon"/>
         <h3>{card.title}</h3>
         <p>{card.description}</p>
       </li>
@@ -29,11 +29,14 @@ import financialProjections from "@data/financialProjections.json";
     max-width: 350px;
     display: block;
     background-color: var(--color-surface-tertiary);
-    padding: var(--space-s);
+    padding: var(--space-m);
     border-radius: var(--border-20);
     flex-shrink: 0;
     }
-
+  .financial-icon {
+    color: var(--color-text);
+    margin-bottom: var(--space-s);
+  }
   }
     }
 </style>

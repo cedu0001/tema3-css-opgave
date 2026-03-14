@@ -1,22 +1,22 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import CaseStudyArticle from "@components/CaseStudyArticle.astro";
-import ScrollTest from "@components/ScrollingContainer.astro";
+import ScrollTest from "@components/FinancialTools.astro";
 ---
 
 <Layout>
   <!-- Banner -->
 <ScrollTest />
 
-  <section class="banner">
-    <p class="lato-regular-16">CASE STUDIES</p>
+  <article class="full-width banner">
+      <p class="lato-regular-16">CASE STUDIES</p>
     <h1>Taxes & Efficiency</h1>
     <p class="lato-regular-16">
       Our achievements reflect the close collaboration between our expert teams
       and our esteemed clientele. We cultivate a workplace that champions peak
       performance and guarantees client satisfaction.
     </p>
-  </section>
+  </article>
 
   <CaseStudyArticle />
 </Layout>
@@ -30,7 +30,9 @@ import ScrollTest from "@components/ScrollingContainer.astro";
         max-width: 700px;
         margin: auto;
       }
-      margin-bottom: 100px;
+      padding: var(--space-l);
+      padding-bottom: 3rlh;
+      background-color: var(--color-surface-secondary);
     }
   }
 </style>
