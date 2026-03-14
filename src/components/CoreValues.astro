@@ -8,47 +8,51 @@ import ArrowRight from "@icons/arrow--right.svg";
 ---
 
 <div class="full-width">
-	<section class="container">
-		<div class="grid_3-1">
-			<div>
-				<p class="lato-regular-16">{coreValues.eyebrow}</p>
-				<h2>{coreValues.title}</h2>
-				<p>
-					{coreValues.subtitle}
-				</p>
+	<div class="card-wrapper">
+		<section class="container">
+			<div class="grid_3-1">
+				<div>
+					<p class="lato-regular-16">{coreValues.eyebrow}</p>
+					<h2>{coreValues.title}</h2>
+					<p>
+						{coreValues.subtitle}
+					</p>
+				</div>
+				<div>
+					<CtaVariant theme="white"
+						>{coreValues.button.text}</CtaVariant
+					>
+				</div>
 			</div>
-			<div>
-				<CtaVariant theme="white">{coreValues.button.text}</CtaVariant>
+
+			<div class="grid_1-1-1-1">
+				{
+					coreValues.values.map((value) => (
+						<div class="value-card">
+							<div class="icon-style">
+								<DynamicIcon
+									width={22}
+									height={22}
+									name={value.icon}
+								/>
+							</div>
+							<h5>{value.title}</h5>
+							<p>{value.description}</p>
+
+							<div class="flex-row">
+								<a href={value.link.url}>{value.link.text}</a>
+								<ArrowRight
+									width={22}
+									height={22}
+									name={value.icon}
+								/>
+							</div>
+						</div>
+					))
+				}
 			</div>
-		</div>
-
-		<div class="grid_1-1-1-1">
-			{
-				coreValues.values.map((value) => (
-					<div class="value-card">
-						<div class="icon-style">
-							<DynamicIcon
-								width={22}
-								height={22}
-								name={value.icon}
-							/>
-						</div>
-						<h5>{value.title}</h5>
-						<p>{value.description}</p>
-
-						<div class="flex-row">
-							<a href={value.link.url}>{value.link.text}</a>
-							<ArrowRight
-								width={22}
-								height={22}
-								name={value.icon}
-							/>
-						</div>
-					</div>
-				))
-			}
-		</div>
-	</section>
+		</section>
+	</div>
 </div>
 
 <style>
@@ -66,63 +70,98 @@ import ArrowRight from "@icons/arrow--right.svg";
 			color: var(--color-text);
 			margin: var(--space-s) 0px;
 		}
-	}
 
-	div.full-width {
-		background-color: var(--color-ui-primary);
-		margin: 20px 0px;
-	}
-
-	section {
-		padding: var(--space-l) 0px;
-
-		.grid_3-1 {
+		div.full-width {
+			background-color: var(--color-ui-primary);
+			margin: 20px 0px;
 			display: grid;
-			grid-template-columns: 3fr 1fr;
-			margin-bottom: var(--space-l);
-			gap: 1em;
+		}
 
-			:nth-child(2) {
-				grid-column: 3;
-				align-self: end;
+		div.card-wrapper {
+			display: grid;
+			grid-template-columns: subgrid;
+			grid-column: full / -1;
+			text-wrap: pretty;
+		}
+
+		section.container {
+			container-type: inline-size;
+			container-name: cards;
+			grid-column: content;
+		}
+
+		section {
+			padding: var(--space-l) 0px;
+
+			.grid_3-1 {
+				display: grid;
+				grid-template-columns: 3fr 1fr;
+				margin-bottom: var(--space-l);
+				gap: 1em;
+
+				:nth-child(2) {
+					grid-column: 3;
+					align-self: end;
+				}
+			}
+
+			.grid_1-1-1-1 {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: var(--space-m);
+
+				.value-card {
+					background-color: var(--color-surface-secondary);
+					padding: var(--space-s);
+					border-radius: var(--border-20);
+					height: fit-content;
+				}
+
+				.flex-row {
+					display: flex;
+					flex-direction: row;
+					margin: var(--space-s) 0px;
+
+					a {
+						margin-right: var(--space-s);
+					}
+				}
+
+				.icon-style {
+					color: #f5f5f5;
+					background-color: var(--color-ui-primary);
+					padding: 10px;
+					border-radius: var(--border-42);
+					width: fit-content;
+
+					svg {
+						width: 30px;
+						height: 30px;
+					}
+				}
 			}
 		}
 
-		.grid_1-1-1-1 {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: var(--space-m);
+		@container cards (width < 900px) {
+			div.grid_1-1-1-1 {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
 
-			.value-card {
-				background-color: var(--color-surface-secondary);
-				padding: var(--space-s);
-				border-radius: var(--border-20);
-				height: fit-content;
+		@container cards (width < 550px) {
+			div.grid_1-1-1-1 {
+				grid-template-columns: 1fr;
 			}
 
-			.flex-row {
+			div.grid_3-1 {
 				display: flex;
-				flex-direction: row;
-				margin: var(--space-s) 0px;
+				flex-wrap: wrap;
+				gap: 1rem;
 
-				a {
-					margin-right: var(--space-s);
-				}
-			}
-
-			.icon-style {
-				color: #f5f5f5;
-				background-color: var(--color-ui-primary);
-				padding: 10px;
-				border-radius: var(--border-42);
-				width: fit-content;
-
-				svg {
-					width: 30px;
-					height: 30px;
+				:nth-child(2) {
+					margin-top: var(--space-m);
 				}
 			}
 		}
 	}
-	/* brug container til at gøre den responsiv */
 </style>
