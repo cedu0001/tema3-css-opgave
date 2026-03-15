@@ -1,0 +1,46 @@
+---
+import FAQ from "@data/faq.json";
+import PlusIcon from "@icons/plus.svg";
+---
+
+     {
+    FAQ.faq.map((qa) => (
+        <details>
+      <summary>
+        <span>
+            <h4>{qa.question}</h3>
+                <PlusIcon/>
+        </span>
+      </summary>
+      <div class="answer">
+            <p>{qa.answer}</p>
+      </div>
+      </details>
+    ))
+  }
+
+<style>
+    @layer components {
+        details {
+            display: block;
+            max-width: 780px;
+            border-top: 1px solid var(--color-surface-tertiary);
+            padding: var(--space-s);
+            span {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .answer {
+            margin-top: var(--space-s);
+            max-width: 90%;
+        }
+        summary {
+            list-style: none;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        }
+    }
+</style>
