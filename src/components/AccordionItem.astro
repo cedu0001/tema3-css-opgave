@@ -9,7 +9,7 @@ import PlusIcon from "@icons/plus.svg";
       <summary>
         <span>
             <h4>{qa.question}</h3>
-                <PlusIcon/>
+                <PlusIcon class="plusIcon"/>
         </span>
       </summary>
       <div class="answer">
@@ -36,8 +36,7 @@ import PlusIcon from "@icons/plus.svg";
   }
         }
         details {
-            display: block;
-            max-width: 780px;
+            width: 100%;
             border-top: 1px solid var(--color-surface-tertiary);
             padding: var(--space-s);
             span {
@@ -45,6 +44,9 @@ import PlusIcon from "@icons/plus.svg";
             justify-content: space-between;
             cursor: pointer;
 
+        }
+        .plusIcon {
+            margin-left: var(--space-xl);
         }
         .answer {
             margin-top: var(--space-s);
