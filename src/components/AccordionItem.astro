@@ -21,6 +21,9 @@ import PlusIcon from "@icons/plus.svg";
 
 <style>
     @layer components {
+        html {
+            interpolate-size: allow-keywords;
+        }
         details {
             display: block;
             max-width: 780px;
@@ -30,6 +33,7 @@ import PlusIcon from "@icons/plus.svg";
             display: flex;
             justify-content: space-between;
             cursor: pointer;
+
         }
         .answer {
             margin-top: var(--space-s);
@@ -41,6 +45,9 @@ import PlusIcon from "@icons/plus.svg";
         summary::-webkit-details-marker {
             display: none;
         }
+        }
+        details[open] {
+        --r: z 90deg;
         }
     }
 </style>
