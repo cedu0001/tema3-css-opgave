@@ -5,7 +5,7 @@ import PlusIcon from "@icons/plus.svg";
 
      {
     FAQ.faq.map((qa) => (
-        <details>
+        <details name="faq">
       <summary>
         <span>
             <h4>{qa.question}</h3>
@@ -21,8 +21,19 @@ import PlusIcon from "@icons/plus.svg";
 
 <style>
     @layer components {
-        html {
+        @supports (interpolate-size: allow-keywords) {
+            html {
             interpolate-size: allow-keywords;
+        }
+        details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.3s ease;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
         }
         details {
             display: block;
