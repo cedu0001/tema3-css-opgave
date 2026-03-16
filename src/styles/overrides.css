@@ -22,6 +22,9 @@
 
     margin-bottom: var(--flow-space, 5rlh);
 }
+.dark_text {
+  color: var(--color-text);
+}
 
 .banner {
     *+* {
