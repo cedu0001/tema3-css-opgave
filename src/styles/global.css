@@ -74,6 +74,7 @@ body {
 		font-size: var(--step-0);
 		font-family: lato-bold;
 		color: var(--color-text);
+		text-decoration: none;
 	}
 
 	input {
