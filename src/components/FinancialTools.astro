@@ -1,0 +1,59 @@
+---
+import ScrollContainer from "@components/ScrollingContainer.astro";
+import financialProjections from "@data/financialProjections.json";
+import Left from "@icons/arrow-left.svg"
+import Right from "@icons/arrow--right.svg"
+---
+
+<article class="container">
+    <section class="flex_row">
+        <div class="financial_tool_text">
+        <p>{financialProjections.eyebrow}</p>
+        <h2>{financialProjections.title}</h2>
+        <p>{financialProjections.subtitle}</p>
+    </div>
+    <div class="arrows">
+<button><Left/></button>
+<button><Right/></button>
+    </div>
+    </section>
+    </article>
+    <ScrollContainer />
+
+
+    <style>
+        @layer components {
+            .container {
+                container-type: inline-size;
+                @container (width < 700px) {
+                    .flex_row {
+                        flex-direction: column;
+                    }
+                }
+            }
+            .flex_row {
+                display: flex;
+                justify-content: space-between;
+                padding: var(--space-s);
+            }
+            .financial_tool_text {
+                max-width: 550px;
+            }
+            .arrows {
+                align-self: flex-end;
+                display: flex;
+                margin-top: var(--space-s);
+                >*{
+                    border-style: none;
+                    color: var(--color-surface-primary);
+                    background-color: var(--color-neutrals-900);
+                    padding: 12px;
+                    max-width: 50px;
+                    max-height: 50px;
+                    border-radius: 50%;
+                    margin-left: var(--space-s);
+                }
+    
+            }
+        }
+    </style>

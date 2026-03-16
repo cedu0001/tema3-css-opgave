@@ -1,0 +1,33 @@
+---
+import QandA from "@components/AccordionItem.astro";
+---
+
+<article class="accordion">
+    <p>FAQ</p>
+    <h2>Customer Questions</h2>
+<section>
+    <QandA/>
+</section>
+    
+
+</article>
+<style>
+    @layer components {
+        .accordion {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: var(--color-surface-secondary);
+            padding: var(--space-l);
+
+            h2 {
+                margin-top: var(--space-xs);
+                margin-bottom: var(--space-l);
+            }
+            section {
+width: 100%;
+            max-width: 780px;
+            }
+        }
+    }
+</style>

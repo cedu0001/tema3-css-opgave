@@ -1,18 +1,18 @@
 /* Override styles here */
-
+@layer overrides {
 .flow {
+    max-width: 792px;
+    margin-left: auto;
+    margin-right: auto;
     >*+* {
         margin-block-start: var(--flow-space, 1em);
     }
-    width: minmax(350px, 792px);
-margin-left: auto;
-       margin-right: auto;
 
     h2 {
         margin-top: var(--flow-space, 2lh);
     }
     h3 {
-       margin-top: var(--flow-space, 1.2lh);
+       margin-top: var(--flow-space, 1lh);
     }
     img {
        --flow-space: 3rlh;
@@ -21,4 +21,47 @@ margin-left: auto;
     }
 
     margin-bottom: var(--flow-space, 5rlh);
+}
+
+.banner {
+    *+* {
+        margin-block: 0.5lh;
+    }
+      text-align: center;
+      p {
+        max-width: 500px;
+        margin: auto;
+      }
+      padding: var(--space-l);
+      padding-bottom: 3rlh;
+      background-color: var(--color-surface-secondary);
+
+      :first-child {
+        color: var(--color-text);
+      }
+    }
+
+    .underline {
+      position: relative;
+      display: inline-block;
+      >span {
+        position: relative;
+        z-index: 1;
+      }
+    }
+.underline::before {
+      content: "";
+      position: absolute;
+      bottom: 0.05em;
+      min-width: 100vw;
+      min-height: 4px;
+      background: var(--color-surface-highlight);
+      z-index: 0;
+    }
+.underline:has(.underline_right)::before {
+    left: 0;
+    }
+.underline:has(.underline_left)::before {
+    right: 0;
+    }
 }

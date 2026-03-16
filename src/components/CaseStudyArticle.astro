@@ -3,6 +3,7 @@
 import DynamicImage from "@components/helpers/DynamicImage.astro";
 import caseStudy from "@data/caseStudy.json";
 const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
+import CTA from "@components/CtaVariant.astro"
 ---
 
 <article>
@@ -23,7 +24,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
           <dd class="date">{date}</dd>
         </div>
       </dl>
-      <a href="#0" class="button">{buttonLabel}</a>
+      <CTA href="#0" class="button">{buttonLabel}</>
     </div>
   </section>
   {
@@ -68,6 +69,43 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   @layer components {
     article {
       margin: var(--space-s);
+    }
+    .case-details {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-m);
+      background: var(--color-ui-primary);
+      border-radius: var(--border-20);
+      max-width: 90%;
+      margin: auto;
+      color: var(--color-neutrals-100);
+      margin-top: -2rlh;
+    }
+    .button {
+      color: var(--color-neutrals-100);
+    }
+    dl {
+      display: flex;
+      & > div {
+        margin: var(--space-s);
+      }
+    }
+    dt {
+      font-family: cabin-semibold;
+    }
+    section:not(.flow) {
+      container-type: inline-size;
+      img {
+        border-radius: var(--border-20);
+      }
+      @container (width < 700px) {
+        .case-details {
+          display: flex;
+          flex-direction: column;
+        }
+      }
     }
   }
 </style>

@@ -2,30 +2,51 @@
 import { Image } from "astro:assets";
 import Services from "./Services.astro";
 import CEOImage from "@assets/images/ceo.webp";
+import CTA from "@components/CtaVariant.astro";
 ---
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Empowering Your Business Growth</h1>
-    <p>
-      Discover tailored strategies and expert insights to take your business to
-      the next level. Let us help you navigate challenges and achieve
-      sustainable success.
-    </p>
-    <a href="#0">Book a Meeting</a>
-    <a href="#0">Learn More</a>
-  </div>
+<article class="hero">
+  <section class="hero-content">
+    <div>
+      <h1>
+        <div class="underline">
+          <span class="underline_left">Empowering</span>
+        </div> Your Business Growth
+      </h1>
+      <p>
+        Discover tailored strategies and expert insights to take your business
+        to the next level. Let us help you navigate challenges and achieve
+        sustainable success.
+      </p>
+    </div>
+    <div class="CTA_section">
+      <CTA>Book a Meeting</CTA>
+      <CTA>Learn More</CTA>
+    </div>
+  </section>
   <Image src={CEOImage} alt="CEO" />
-
   <Services />
-</section>
+</article>
 
 <style>
   /* Styles her */
   @layer components {
     .hero {
-      background-color: #f3f4f6;
-      padding: 2rem;
+      grid-column: full;
+      padding-inline: max(1rem, 50% - 1200px / 2);
+      background-color: var(--color-ui-primary);
+      h1 {
+        color: var(--color-neutrals-100);
+        max-width: 16ch;
+      }
+      p {
+        max-width: 550px;
+      }
+      img {
+        object-fit: cover;
+      }
+    }
+    .hero-content {
     }
   }
 </style>
