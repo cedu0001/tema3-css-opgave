@@ -168,21 +168,40 @@ const { theme = "default" } = Astro.props;
 
 		[data-surface="default"] {
 			--color-ui-primary: var(--color-neutrals-900);
-			--color-surface-secondary: var(--color-surface-primary);
 			--color-on-ui-primary: var(--color-surface-primary);
+			--color-surface-secondary: white;
+			--color-text: black;
+
+			div.value-card {
+				--color-surface-secondary: var(--color-surface-primary);
+			}
 
 			.icon-style {
 				--color-ui-primary: var(--color-neutrals-900);
+			}
+
+			h5 {
+				--color-text: black;
 			}
 		}
 
 		[data-surface="light"] {
 			--color-ui-primary: var(--color-neutrals-50);
-			--color-surface-secondary: var(--color-surface-primary);
 			--color-on-ui-primary: var(--color-neutrals-900);
+			--color-surface-secondary: black;
+			--color-text: white;
+
+			div.value-card {
+				--color-surface-secondary: var(--color-surface-primary);
+			}
 
 			.icon-style {
 				--color-ui-primary: var(--color-neutrals-900);
+			}
+
+			h5,
+			.flex-row a {
+				--color-text: black;
 			}
 		}
 	}
