@@ -5,9 +5,11 @@ import CtaVariant from "@components/CtaVariant.astro";
 import coreValues from "@data/coreValues.json";
 import DynamicIcon from "@helpers/DynamicIcon.astro";
 import ArrowRight from "@icons/arrow--right.svg";
+
+const { theme = "default" } = Astro.props;
 ---
 
-<div class="full-width">
+<div class="full-width" data-surface={theme}>
 	<div class="card-wrapper">
 		<section class="container">
 			<div class="grid_3-1">
@@ -161,6 +163,26 @@ import ArrowRight from "@icons/arrow--right.svg";
 				:nth-child(2) {
 					margin-top: var(--space-m);
 				}
+			}
+		}
+
+		[data-surface="default"] {
+			--color-ui-primary: var(--color-neutrals-900);
+			--color-surface-secondary: var(--color-surface-primary);
+			--color-on-ui-primary: var(--color-surface-primary);
+
+			.icon-style {
+				--color-ui-primary: var(--color-neutrals-900);
+			}
+		}
+
+		[data-surface="light"] {
+			--color-ui-primary: var(--color-neutrals-50);
+			--color-surface-secondary: var(--color-surface-primary);
+			--color-on-ui-primary: var(--color-neutrals-900);
+
+			.icon-style {
+				--color-ui-primary: var(--color-neutrals-900);
 			}
 		}
 	}
