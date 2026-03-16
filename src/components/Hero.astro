@@ -24,15 +24,20 @@ import CTA from "@components/CtaVariant.astro";
       <CTA>Learn More</CTA>
     </div>
   </section>
-  <Image src={CEOImage} alt="CEO" />
-  <Services />
+  <section class="CEO-img">
+    <Image src={CEOImage} alt="CEO" />
+  </section>
 </article>
+
+<Services />
 
 <style>
   /* Styles her */
   @layer components {
     .hero {
-      grid-column: full;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1/-1;
       padding-inline: max(1rem, 50% - 1200px / 2);
       background-color: var(--color-ui-primary);
       h1 {
@@ -42,11 +47,26 @@ import CTA from "@components/CtaVariant.astro";
       p {
         max-width: 550px;
       }
-      img {
-        object-fit: cover;
-      }
+      /*   .hero-content {
+        grid-column: 2/3;
+        margin: var(--space-s);
+      } */
+    }
+    .CEO-img {
+      object-fit: contain;
+      grid-column: 3/-1;
     }
     .hero-content {
+      grid-column: 2/3;
+      margin: var(--space-s);
+    }
+    @media (width < 700px) {
+      .CEO-img {
+        display: none;
+      }
+      .hero-content {
+        grid-column: 1/-1;
+      }
     }
   }
 </style>

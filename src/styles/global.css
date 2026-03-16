@@ -88,7 +88,7 @@ body {
 	--content-width: 1200px;
 	--half-content: calc(var(--content-width)/2);
 	grid-template-columns:
-	[full-start] minmax(var(--space-s), 1fr) [content-start] minmax(0, var(--half-content)) minmax(0, var(--half-content)) [content-end] minmax(var(--space-s), 1fr) [full-end];
+	[full-start] minmax(var(--space-s), 1fr) [content-start] minmax(0, var(--half-content)) [middleRight-start] minmax(0, var(--half-content)) [content-end] minmax(var(--space-s), 1fr) [full-end middleRight-end];
 	>* {
 		grid-column: full;
 		display: grid;
@@ -111,6 +111,9 @@ footer {
 .full-width {
 	grid-column: full;
 	 padding-inline: max(1rem, 50% - 1200px / 2);
+}
+.middle-right {
+	grid-column: middleRight;
 }
 
 .yellow-text {
