@@ -1,0 +1,58 @@
+---
+import DynamicIcon from "@helpers/DynamicIcon.astro";
+import ImageAbout from "@data/images/aboutIMG.png"
+import { Image } from "astro:assets";
+---
+<article>
+    <section class="ourvision-content">
+
+        <p>OUR VISION</p>
+        <h2>Turn your ideas into reality.</h2>
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+            <span><DynamicIcon name="checkmark" class="checkmark"/> <p>Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</p></span>
+            <span><DynamicIcon name="checkmark" class="checkmark" /> <p>Identify opportunities to optimize processes and implement impactful solutions with measurable results.</p></span>
+    </section>
+    <section><figure><Image src={ImageAbout} alt=""></figure></section>
+</article>
+
+<style>
+    @layer components {
+article {
+    margin-block: 4rlh;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 1lh;
+    span {
+        display: flex;
+        margin-top: var(--space-s);
+        p {
+            margin-left: var(--space-s);
+        }
+    }
+    .ourvision-content {
+    grid-column: 1/2;
+    margin-left: var(--space-l);
+    svg {
+            min-width: 40px;
+            color: var(--color-ui-secondary-alternative);
+        }
+}}
+figure {
+    grid-column: 2/3;
+    position: relative;
+    isolation: isolate;
+    align-content: center;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -2rlh;
+        right: -1lh;
+        height: 160px;
+        width: 180px;
+        background-color: var(--color-ui-secondary);
+        z-index: -1;
+        border-radius: var(--border-20);
+    }
+}
+    }
+</style>
