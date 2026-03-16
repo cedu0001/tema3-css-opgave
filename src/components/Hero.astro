@@ -21,7 +21,7 @@ import CTA from "@components/CtaVariant.astro";
     </div>
     <div class="CTA_section">
       <CTA>Book a Meeting</CTA>
-      <CTA>Learn More</CTA>
+      <CTA theme="dark">Learn More</CTA>
     </div>
   </section>
   <section class="CEO-img">
@@ -39,6 +39,7 @@ import CTA from "@components/CtaVariant.astro";
       grid-template-columns: subgrid;
       grid-column: 1/-1;
       padding-inline: max(1rem, 50% - 1200px / 2);
+      padding-bottom: var(--space-l);
       background-color: var(--color-ui-primary);
       h1 {
         color: var(--color-neutrals-100);
@@ -59,6 +60,11 @@ import CTA from "@components/CtaVariant.astro";
     .hero-content {
       grid-column: 2/3;
       margin: var(--space-s);
+      --grid-size: 50px;
+      --grid-color: hsl(from var(--color-action) h s l / 0.2);
+      background:
+      radial-gradient(circle at 80% 50%, #0000, var(--color-ui-primary) 50%),
+      conic-gradient(from 180deg at 1px 1px, var(--grid-color) 75%, #0000 0) -1px -1px / var(--grid-size) var(--grid-size);
     }
     @media (width < 700px) {
       .CEO-img {
