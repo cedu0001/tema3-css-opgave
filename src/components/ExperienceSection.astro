@@ -1,0 +1,94 @@
+---
+import "../styles/main.css";
+
+import experience from "@data/experience.json";
+---
+
+<section class="full-width">
+	<div class="grid">
+		<div>
+			<p>{experience.eyebrow}</p>
+			<h3>{experience.title}</h3>
+			<p>{experience.subtitle}</p>
+		</div>
+		<div class="stats">
+			{
+				experience.stats.map((stat) => (
+					<div class="flex">
+						<div class="stat" style={`--percent: ${stat.value}`} />
+						<h4>{stat.label}</h4>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	@layer components {
+		section {
+			background-color: var(--color-surface-highlight);
+			padding: var(--space-l) var(--space-l);
+		}
+		.stats {
+			display: flex;
+			gap: 1rem;
+			width: min(400px, 100% - 1rem);
+		}
+
+		.stat {
+			container: stat / inline-size;
+			--actual-percent: calc(var(--percent) * 1);
+			--border-width: 5px;
+			aspect-ratio: 1;
+			width: 150px;
+			border-radius: calc(infinity * 1px);
+			border: var(--border-width) solid #0000;
+			background:
+				conic-gradient(var(--color-surface-highlight)) padding-box,
+				conic-gradient(#fff calc(var(--percent) * 1%), #daae3c 0)
+					border-box;
+
+			display: grid;
+
+			&::before,
+			&::after {
+				grid-area: 1 / 1;
+			}
+
+			&::after {
+				counter-reset: stat var(--percent);
+				content: counter(stat) "%";
+				place-self: center;
+				font-size: 25cqw;
+			}
+
+			&::before {
+				content: "";
+				aspect-ratio: 1;
+				border-radius: calc(infinity * 1px);
+				offset-path: border-box;
+				offset-distance: var(--actual-percent);
+				offset-anchor: 50% calc(50% - var(--border-width) / 2);
+				offset: border-box var(--actual-percent);
+				width: calc(var(--border-width) * 4);
+				background: #030712;
+				border: solid white 4px;
+			}
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.flex {
+			display: flex;
+			flex-direction: column;
+			h4 {
+				place-self: center;
+				font-size: var(--step-1);
+			}
+		}
+	}
+</style>
