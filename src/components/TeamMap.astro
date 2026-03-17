@@ -1,0 +1,6 @@
+---
+import TeamCard from "./TeamCard.astro";
+const { data } = Astro.props;
+---
+
+{data.map((employee: any) => <TeamCard {...employee} />)}

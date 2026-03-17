@@ -1,3 +1,34 @@
 ---
-import IMG from "@data/images";
+import IMG from "@helpers/DynamicImage.astro";
+import Employees from "@data/employees.json";
+import DynamicIcon from "@helpers/DynamicIcon.astro";
+const { img, name, description, title, social_links, slug } = Astro.props;
 ---
+
+<article class="team-wrapper">
+  <section class="team-layout">
+    <IMG imagePath={img} altText={name} />
+    <div class="employee-info">
+      <p>{title}</p>
+      <h3><a href={"/employees/${slug}"}>{name}</a></h3>
+      <p>{description}</p>
+    </div>
+    <div class="SoMe">
+      {social_links.map((link: any) => <DynamicIcon name={link.icon} />)}
+    </div>
+  </section>
+</article>
+
+<style>
+  @layer components {
+    .team-wrapper {
+      container-type: inline-size;
+    }
+    .SoMe {
+      display: flex;
+    }
+
+    @container (width < 600px) {
+    }
+  }
+</style>

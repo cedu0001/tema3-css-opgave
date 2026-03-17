@@ -88,7 +88,7 @@ body {
 	--content-width: 1200px;
 	--half-content: calc(var(--content-width)/2);
 	grid-template-columns:
-	[full-start] minmax(var(--space-s), 1fr) [content-start] minmax(0, var(--half-content)) [middleRight-start] minmax(0, var(--half-content)) [content-end] minmax(var(--space-s), 1fr) [full-end middleRight-end];
+	[full-start] minmax(var(--space-s), 1fr) [content-start] minmax(0, var(--half-content)) minmax(0, var(--half-content)) [content-end] minmax(var(--space-s), 1fr) [full-end];
 	>* {
 		grid-column: full;
 		display: grid;
