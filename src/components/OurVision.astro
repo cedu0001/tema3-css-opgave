@@ -4,10 +4,10 @@ import ImageAbout from "@assets/images/aboutIMG.png";
 import { Image } from "astro:assets";
 ---
 
-<article>
+<article class="ourvision-article">
   <section class="ourvision-content">
     <p>OUR VISION</p>
-    <h2>Turn your ideas into reality.</h2>
+    <h2 class="ideas-to-reality">Turn your ideas into reality.</h2>
     <p>
       Capitalize on low hanging fruit to identify a ballpark value added
       activity beta test. Override the digital divide with additional from
@@ -29,11 +29,46 @@ import { Image } from "astro:assets";
     >
   </section>
   <section><figure><Image src={ImageAbout} alt="" /></figure></section>
-
+</article>
+<article class="flex-wrap">
+  <section class="flex-column">
+    <h2>1128+</h2>
+    <p>Successful Work</p>
+  </section>
+  <section class="flex-column">
+    <h2>908+</h2>
+    <p>Team members</p>
+  </section>
+  <section class="flex-column">
+    <h2>258+</h2>
+    <p>Happy Customers</p>
+  </section>
+  <section class="flex-column">
+    <h2>564+</h2>
+    <p>Creative Ideas</p>
+  </section>
+</article>
   <style>
     @layer components {
+      .ideas-to-reality {
+        max-width: 10ch;
+      }
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: var(--space-l);
+        margin-right: var(--space-l);
+      }
+      .flex-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 4rlh;
+      }
       article {
-        margin-block: 4rlh;
+        margin-top: 4rlh;
         display: grid;
         grid-template-columns: subgrid;
         gap: 1lh;
@@ -58,17 +93,23 @@ import { Image } from "astro:assets";
         position: relative;
         isolation: isolate;
         align-content: center;
+        margin-top: var(--space-l);
         &::before {
           content: "";
           position: absolute;
           top: -2rlh;
-          right: -1lh;
+          right: -1rlh;
           height: 160px;
           width: 180px;
           background-color: var(--color-ui-secondary);
           z-index: -1;
           border-radius: var(--border-20);
         }
+      }
+       @media (width < 700px) {
+        .ourvision-article {
+          display: grid;
+          grid-template-columns: 1fr;}
       }
     }
   </style>

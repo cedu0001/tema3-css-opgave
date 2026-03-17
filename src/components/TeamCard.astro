@@ -1,18 +1,17 @@
 ---
 import IMG from "@helpers/DynamicImage.astro";
-import Employees from "@data/employees.json";
 import DynamicIcon from "@helpers/DynamicIcon.astro";
 const { img, id, name, description, title, social_links, slug } = Astro.props;
 ---
   <section class="team-layout">
-    <IMG imagePath={img} altText={name} class="team-img"/>
+    <a href={"/employees/${slug}"}><IMG imagePath={img} altText={name} class="team-img"/></a>
     <div class="employee-info">
       <h3><a href={"/employees/${slug}"}>{name}</a></h3>
       <p class="work-title">{title}</p>
       <p>{description}</p>
     </div>
     <div class="SoMe">
-      {social_links.map((link: any) => <DynamicIcon name={link.icon} />)}
+      {social_links.map((link: any) => <a href={link.url}><DynamicIcon name={link.icon} /></a>)}
     </div>
   </section>
 
@@ -56,6 +55,20 @@ const { img, id, name, description, title, social_links, slug } = Astro.props;
     .SoMe {
         display: none;
       }
+      }
+      @container team-wrap (width > 709px) {
+        .team-layout {
+          position: relative;
+        }
+        .work-title {
+          position: absolute;
+        top: 270px;
+      right: 10px;
+    color: var(--color-surface-secondary);
+    padding: 8px;
+    padding-block: 4px;
+  background: var(--color-text);
+border-radius: var(--border-20);}
       }
     }
 </style>

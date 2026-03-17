@@ -4,7 +4,7 @@ import ImageWTE from "@assets/images/ImageWTE.webp";
 import { Image } from "astro:assets";
 ---
 
-<article>
+<article class="WhatToExpect-article">
   <figure><Image src={ImageWTE} alt="" /></figure>
   <section class="wwwy-content">
     <p>WE'LL WORK WITH YOU</p>
@@ -55,7 +55,7 @@ import { Image } from "astro:assets";
     }
     figure {
       position: relative;
-      isolation: isolate;
+      max-width: 500px;
       &::before {
         content: "";
         position: absolute;
@@ -68,5 +68,10 @@ import { Image } from "astro:assets";
         border-radius: var(--border-20);
       }
     }
+    @media (width < 700px) {
+        article {
+          display: grid;
+          grid-template-columns: 1fr;}
+      }
   }
 </style>

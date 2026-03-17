@@ -2,8 +2,10 @@
 import Layout from "@layouts/Layout.astro";
 import OurVision from "@components/OurVision.astro";
 import TeamData from "@data/employees.json";
+import CtaVariant from "@components/CtaVariant.astro";
 
 import Employees from "@components/TeamMap.astro";
+const FirstTwo = TeamData.slice(0, 2);
 ---
 
 <Layout>
@@ -17,6 +19,36 @@ import Employees from "@components/TeamMap.astro";
     </p>
   </article>
   <OurVision/>
-
-   <Employees data={TeamData} />
+<article class="our-team">
+  <section><p class="dark_text">
+    OUR TEAM</p>
+  <h2>We champion the bold</h2>
+<p>Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction.
+  </p>
+  <CtaVariant theme="dark">Meet the Team</CtaVariant>
+</section>
+  <Employees data={FirstTwo} />
+</article>
+   
 </Layout>
+
+<style>
+  @layer components {
+    .our-team {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: var(--space-m);
+      >section {
+        margin-top: var(--space-m);
+      }
+      h2 {
+        margin-block: var(--space-m);
+      }
+      
+    }
+    @media (width < 700px) {
+        .our-team {
+          grid-template-columns: 1fr;}
+      }
+  }
+</style>
