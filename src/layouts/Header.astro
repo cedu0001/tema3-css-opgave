@@ -124,9 +124,22 @@ import CtaVariant from "@components/CtaVariant.astro";
 			}
 		}
 
-		[popovertarget="menu"] {
-			anchor-name: --menu-button;
+		.nav button {
+			anchor-name: --menu-btn;
 		}
+
+		.login-btn button {
+			anchor-name: --login-btn;
+		}
+
+		#menu {
+			position-anchor: --menu-btn;
+		}
+
+		#pop {
+			position-anchor: --login-btn;
+		}
+
 		[popover] {
 			background-color: var(--color-surface-secondary);
 			position-anchor: --menu-button;
@@ -141,6 +154,11 @@ import CtaVariant from "@components/CtaVariant.astro";
 
 		/* mobil */
 		@media (width <= 600px) {
+			.grid {
+				grid-template-columns: 1fr 1fr auto;
+				gap: var(--space-s);
+			}
+
 			.nav {
 				grid-column: 3/4;
 				justify-self: end;
