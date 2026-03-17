@@ -27,6 +27,7 @@
 }
 
 .banner {
+  overflow-x: clip;
     *+* {
         margin-block: 0.5lh;
     }
