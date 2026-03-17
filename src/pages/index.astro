@@ -3,14 +3,10 @@ import Layout from "@layouts/Layout.astro";
 import Hero from "@components/Hero.astro";
 import CoreValues from "@components/CoreValues.astro";
 import WhatToExpect from "@components/WhatToExpect.astro";
-import TeamData from "@data/employees.json";
-
-import Employees from "@components/TeamMap.astro";
 ---
 
 <Layout>
   <Hero />
-  <Employees data={TeamData} />
   <WhatToExpect />
   <CoreValues />
   <CoreValues theme="light" />

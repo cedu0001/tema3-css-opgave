@@ -1,6 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import OurVision from "@components/OurVision.astro";
+import TeamData from "@data/employees.json";
+
+import Employees from "@components/TeamMap.astro";
 ---
 
 <Layout>
@@ -14,4 +17,6 @@ import OurVision from "@components/OurVision.astro";
     </p>
   </article>
   <OurVision/>
+
+   <Employees data={TeamData} />
 </Layout>
