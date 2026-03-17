@@ -14,7 +14,7 @@ import CtaVariant from "@components/CtaVariant.astro";
 				<li><a href="">Team</a></li>
 				<li><a href="">About</a></li>
 			</ul>
-			<button popovertarget="menu">Menu</button>
+			<button popovertarget="menu" id="menu-button">Menu</button>
 		</div>
 
 		<div class="login-btn">
@@ -124,12 +124,12 @@ import CtaVariant from "@components/CtaVariant.astro";
 			}
 		}
 
-		[popovertarget] {
-			anchor-name: --login-btn;
+		[popovertarget="menu"] {
+			anchor-name: --menu-button;
 		}
 		[popover] {
 			background-color: var(--color-surface-secondary);
-			position-anchor: --login-btn;
+			position-anchor: --menu-button;
 			position-area: bottom span-left;
 			justify-self: anchor-center;
 			position: absolute;
