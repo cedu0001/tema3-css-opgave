@@ -83,8 +83,8 @@ import CtaVariant from "@components/CtaVariant.astro";
 					position-area: bottom span-left;
 					display: grid;
 					padding: 1rlh;
-					background: var(--color-surface-primary);
-					border: revert;
+					background: var(--color-on-ui-primary);
+					border: none;
 				}
 				@media (width >= 600px) {
 					margin: unset;
@@ -148,8 +148,18 @@ import CtaVariant from "@components/CtaVariant.astro";
 			position: absolute;
 			position-try: flip-inline;
 			border: none;
-			padding: 10px;
+			padding: 25px;
 			border-radius: var(--border-20);
+		}
+
+		.submit-btn {
+			display: inline-block;
+			border-radius: var(--border-42);
+			color: var(--color-text);
+			padding: 10px var(--space-l);
+			background-color: var(--color-action);
+			cursor: pointer;
+			border: 3px solid var(--color-action);
 		}
 
 		/* mobil */
@@ -174,8 +184,12 @@ import CtaVariant from "@components/CtaVariant.astro";
 				background-color: var(--color-on-ui-primary);
 				border-radius: var(--border-42);
 				padding: 5px 5px;
-				border: 3px solid var(--color-on-ui-primary);
+				border: none;
 				font-family: lato-regular;
+			}
+
+			#menu-button {
+				padding: 5px var(--space-m);
 			}
 
 			li a {
