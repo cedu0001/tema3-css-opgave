@@ -1,0 +1,95 @@
+---
+import type { GetStaticPaths } from "astro";
+import IMG from "@helpers/DynamicImage.astro";
+import DynamicIcon from "@components/helpers/DynamicIcon.astro";
+import employees from "@data/employees.json";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  return employees.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { post } = Astro.props;
+---
+
+<Layout>
+  <article>
+    <section>
+      <figure>
+        <IMG imagePath={post.img} altText={post.name} />
+      </figure>
+      <div class="SoMe">
+        <a href="#"><DynamicIcon name="instagram" /></a>
+        <a href="#"><DynamicIcon name="facebook" /></a>
+      </div>
+    </section>
+    <section>
+      <h2>{post.name}</h2>
+      <p>{post.title}</p>
+      <p>{post.description_long}</p>
+      <hr />
+      <h2 class="past_ex">Past experience</h2>
+      <p>{post.past_experience}</p>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  @layer components {
+    article {
+      margin-block: 4rlh;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-l);
+      p + p {
+        margin-top: var(--space-m);
+      }
+      p {
+        margin-bottom: var(--space-s);
+      }
+      .past_ex {
+        margin-bottom: var(--space-m);
+      }
+      hr {
+        margin-block: var(--space-l);
+      }
+      figure {
+        padding: var(--space-l);
+        position: relative;
+        isolation: isolate;
+        &::before {
+          content: "";
+          position: absolute;
+          top: -1rlh;
+          left: -0.5rlh;
+          height: 160px;
+          width: 200px;
+          background-color: var(--color-ui-secondary);
+          z-index: -1;
+          border-radius: var(--border-20);
+        }
+        img {
+          display: inline-block;
+          width: 100%;
+          border-radius: var(--border-20);
+          height: auto;
+          object-fit: cover;
+        }
+      }
+    }
+    .SoMe {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      > * {
+        margin: var(--space-s) var(--space-m);
+      }
+    }
+  }
+</style>

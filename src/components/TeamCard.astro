@@ -3,17 +3,26 @@ import IMG from "@helpers/DynamicImage.astro";
 import DynamicIcon from "@helpers/DynamicIcon.astro";
 const { img, id, name, description, title, social_links, slug } = Astro.props;
 ---
-  <section class="team-layout">
-    <a href={"/employees/${slug}"}><IMG imagePath={img} altText={name} class="team-img"/></a>
-    <div class="employee-info">
-      <h3><a href={"/employees/${slug}"}>{name}</a></h3>
-      <p class="work-title">{title}</p>
-      <p>{description}</p>
-    </div>
-    <div class="SoMe">
-      {social_links.map((link: any) => <a href={link.url}><DynamicIcon name={link.icon} /></a>)}
-    </div>
-  </section>
+
+<section class="team-layout">
+  <a href={`../employee/${slug}`}
+    ><IMG imagePath={img} altText={name} class="team-img" /></a
+  >
+  <div class="employee-info">
+    <h3><a href={"/employees/${slug}"}>{name}</a></h3>
+    <p class="work-title">{title}</p>
+    <p>{description}</p>
+  </div>
+  <div class="SoMe">
+    {
+      social_links.map((link: any) => (
+        <a href={link.url}>
+          <DynamicIcon name={link.icon} />
+        </a>
+      ))
+    }
+  </div>
+</section>
 
 <style>
   @layer components {
@@ -26,49 +35,52 @@ const { img, id, name, description, title, social_links, slug } = Astro.props;
       }
     }
     .employee-info {
-        text-align: center;
-      }
+      text-align: center;
+    }
     .SoMe {
       display: flex;
       align-content: center;
       justify-content: center;
-      >* {margin: var(--space-s);}
+      > * {
+        margin: var(--space-s);
+      }
     }
 
     @container team-wrap (width < 710px) {
       .team-layout {
         display: grid;
-    grid-template-columns: 1fr 2fr;
-    max-width: 700px;
-    img {
-    max-width: 200px;
-    border-radius: var(--border-20);
-    }
-    }
-    .employee-info {
-  margin-left: var(--space-s);
-  text-align: start;
-  .work-title {
-    color: var(--color-text);
-  }
-}
-    .SoMe {
+        grid-template-columns: 1fr 2fr;
+        max-width: 700px;
+        img {
+          max-width: 200px;
+          border-radius: var(--border-20);
+        }
+      }
+      .employee-info {
+        margin-left: var(--space-s);
+        text-align: start;
+        .work-title {
+          color: var(--color-text);
+        }
+      }
+      .SoMe {
         display: none;
       }
+    }
+    @container team-wrap (width > 709px) {
+      .team-layout {
+        position: relative;
       }
-      @container team-wrap (width > 709px) {
-        .team-layout {
-          position: relative;
-        }
-        .work-title {
-          position: absolute;
+      .work-title {
+        position: absolute;
         top: 270px;
-      right: 10px;
-    color: var(--color-surface-secondary);
-    padding: 8px;
-    padding-block: 4px;
-  background: var(--color-text);
-border-radius: var(--border-20);}
+        right: 10px;
+        color: var(--color-surface-secondary);
+        padding: 8px;
+        padding-block: 4px;
+        background: var(--color-text);
+        border-radius: var(--border-20);
       }
     }
+  }
 </style>
