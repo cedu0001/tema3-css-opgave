@@ -7,36 +7,46 @@ import Employees from "@components/TeamMap.astro";
 ---
 
 <Layout>
-<article class="full-width banner">
+  <article class="full-width banner">
     <p class="lato-regular-16">TEAM</p>
     <h1 class="underline">
       <span class="underline_left">The Consultors</span>
     </h1>
     <p class="lato-regular-16">
-    Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction.
-</p>
+      Our success stems from the synergy between dedicated teams and our valued
+      clients. We prioritize a company culture that fosters exceptional
+      productivity, ensures customer satisfaction.
+    </p>
   </article>
 
-<article class="meet-the-team">
+  <article class="meet-the-team">
     <section>
-        <h2>Meet Our Great Team</h2>
-        <p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
-
+      <h2>Meet Our Great Team</h2>
+      <p>
+        Welcome to our amazing team! We are a group of passionate individuals
+        dedicated to excellence and innovation. Each member brings unique skills
+        and experiences, working together to achieve our goals. Join us as we
+        embark on exciting projects and create lasting impacts.
+      </p>
     </section>
     <CtaVariant theme="dark">Join our team</CtaVariant>
-</article>
-<Employees data={TeamData}/>
+  </article>
+  <Employees data={TeamData} />
 </Layout>
 
 <style>
-    @layer components {
-.meet-the-team {
-    display: grid;
-    grid-template-columns: subgrid;
-    padding: var(--space-l);
-    *+* {
+  @layer components {
+    .meet-the-team {
+      display: grid;
+      position: relative;
+      grid-template-columns: 3fr 2fr;
+      padding: var(--space-l);
+      * + * {
         margin-top: var(--space-m);
+      }
+      :last-child {
+        align-self: end;
+      }
     }
-}
-    }
+  }
 </style>
