@@ -5,24 +5,24 @@ import Header from "@layouts/Header.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>DIN TITEL HER. MÅSKE SOM PROP?</title>
-		<style is:inline>
-			@layer reset, global, tokens, components, overrides;
-		</style>
-	</head>
-	<body>
-		<Header />
-		<header></header>
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>AskExperts</title>
+    <style is:inline>
+      @layer reset, global, tokens, components, overrides;
+    </style>
+  </head>
+  <body>
+    <Header />
+    <header></header>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style></style>
