@@ -1,32 +1,27 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import CaseStudyArticle from "@components/CaseStudyArticle.astro";
-import ScrollTest from "@components/FinancialTools.astro";
-import Accordion from "@components/Accordion.astro";
 ---
 
 <Layout>
-  <!-- Banner -->
-  <Accordion />
+	<!-- Banner -->
 
-  <ScrollTest />
+	<article class="full-width banner">
+		<p class="lato-regular-16">CASE STUDIES</p>
+		<h1 class="underline">
+			<span class="underline_left">Taxes & Efficiency</span>
+		</h1>
+		<p class="lato-regular-16">
+			Our achievements reflect the close collaboration between our expert
+			teams and our esteemed clientele. We cultivate a workplace that
+			champions peak performance and guarantees client satisfaction.
+		</p>
+	</article>
 
-  <article class="full-width banner">
-    <p class="lato-regular-16">CASE STUDIES</p>
-    <h1 class="underline">
-      <span class="underline_left">Taxes & Efficiency</span>
-    </h1>
-    <p class="lato-regular-16">
-      Our achievements reflect the close collaboration between our expert teams
-      and our esteemed clientele. We cultivate a workplace that champions peak
-      performance and guarantees client satisfaction.
-    </p>
-  </article>
-
-  <CaseStudyArticle />
+	<CaseStudyArticle />
 </Layout>
 
 <style>
-  @layer components {
-  }
+	@layer components {
+	}
 </style>
