@@ -5,18 +5,44 @@ import CtaVariant from "@components/CtaVariant.astro";
 
 <header>
 	<div class="grid">
-		<h4>Ask<span class="yellow-text">Experts</span></h4>
+		<a href="/"><h4>Ask<span class="yellow-text">Experts</span></h4></a>
 
-		<div class="menu">
-			<a href="#">Home</a>
-			<a href="/case">Case Study</a>
-			<a href="">Team</a>
-			<a href="">About</a>
+		<div class="nav">
+			<ul popover id="menu">
+				<li><a href="/">Home</a></li>
+				<li><a href="/case">Case Study</a></li>
+				<li><a href="">Team</a></li>
+				<li><a href="">About</a></li>
+			</ul>
+			<button popovertarget="menu" id="menu-button">Menu</button>
 		</div>
 
-		<div class="button">
-			<CtaVariant theme="login">Login</CtaVariant>
+		<div class="login-btn">
+			<button popovertarget="pop"
+				><CtaVariant theme="login">Login</CtaVariant></button
+			>
 		</div>
+
+		<aside id="pop" popover="manual">
+			<div>
+				<h3>Dashboard Login</h3>
+				<form>
+					<div>
+						<p>Email adress</p>
+						<input type="email" placeholder="" />
+					</div>
+
+					<div>
+						<p>Password</p>
+						<input type="password" placeholder="" />
+					</div>
+
+					<button type="submit" class="submit-btn"
+						>Go to dashboard</button
+					>
+				</form>
+			</div>
+		</aside>
 	</div>
 </header>
 
@@ -32,18 +58,47 @@ import CtaVariant from "@components/CtaVariant.astro";
 			grid-template-columns: 1fr auto 1fr;
 		}
 
-		ul {
-			list-style: none;
-		}
-
 		h4 {
 			color: var(--color-on-ui-primary);
 			grid-column: 1;
 		}
 
-		.menu {
+		.login-btn button {
+			border: none;
+		}
+
+		.nav {
 			grid-column: 2;
 			align-self: center;
+
+			ul {
+				display: none;
+				flex-direction: row;
+				justify-content: space-between;
+				background: transparent;
+				border: none;
+				list-style: none;
+
+				&:popover-open {
+					position-area: bottom span-left;
+					display: grid;
+					padding: 1rlh;
+					background: var(--color-surface-primary);
+					border: revert;
+				}
+				@media (width >= 600px) {
+					margin: unset;
+					position: unset;
+					display: flex;
+				}
+			}
+
+			button {
+				@media (width >= 600px) {
+					display: none;
+				}
+			}
+
 			a {
 				color: var(--color-on-ui-primary);
 				font-size: var(--step-0);
@@ -52,10 +107,80 @@ import CtaVariant from "@components/CtaVariant.astro";
 			}
 		}
 
-		.button {
+		.login-btn {
 			grid-column: 3;
 			justify-self: end;
 			align-self: center;
+		}
+
+		form {
+			display: grid;
+			gap: 1rlh;
+
+			input {
+				border-radius: var(--border-20);
+				border: 1.5px solid #b1b1b1;
+				padding: 5px var(--space-l);
+			}
+		}
+
+		.nav button {
+			anchor-name: --menu-btn;
+		}
+
+		.login-btn button {
+			anchor-name: --login-btn;
+		}
+
+		#menu {
+			position-anchor: --menu-btn;
+		}
+
+		#pop {
+			position-anchor: --login-btn;
+		}
+
+		[popover] {
+			background-color: var(--color-surface-secondary);
+			position-anchor: --menu-button;
+			position-area: bottom span-left;
+			justify-self: anchor-center;
+			position: absolute;
+			position-try: flip-inline;
+			border: none;
+			padding: 10px;
+			border-radius: var(--border-20);
+		}
+
+		/* mobil */
+		@media (width <= 600px) {
+			.grid {
+				grid-template-columns: 1fr 1fr auto;
+				gap: var(--space-s);
+			}
+
+			.nav {
+				grid-column: 3/4;
+				justify-self: end;
+				align-self: center;
+			}
+
+			.login-btn {
+				grid-row: 1;
+				grid-column: 2/3;
+			}
+
+			button {
+				background-color: var(--color-on-ui-primary);
+				border-radius: var(--border-42);
+				padding: 5px 5px;
+				border: 3px solid var(--color-on-ui-primary);
+				font-family: lato-regular;
+			}
+
+			li a {
+				color: var(--color-text);
+			}
 		}
 	}
 </style>
