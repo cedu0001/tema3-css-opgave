@@ -1,0 +1,22 @@
+---
+import TeamCard from "./TeamCard.astro";
+const { data } = Astro.props;
+---
+<article class="team-wrapper">
+{data.map((employee: any) => <TeamCard {...employee} />)}
+</article>
+
+<style>
+    @layer components {
+        .team-wrapper {
+      container-type: inline-size;
+      container-name: team-wrap;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @container team-wrap (width < 710px) {
+    
+    }
+    }
+</style>

@@ -112,6 +112,9 @@ footer {
 	grid-column: full;
 	 padding-inline: max(1rem, 50% - 1200px / 2);
 }
+.middle-right {
+	grid-column: middleRight;
+}
 
 .yellow-text {
 	color: var(--color-action);

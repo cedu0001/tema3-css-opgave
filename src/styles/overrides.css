@@ -22,8 +22,12 @@
 
     margin-bottom: var(--flow-space, 5rlh);
 }
+.dark_text {
+  color: var(--color-text);
+}
 
 .banner {
+  overflow-x: clip;
     *+* {
         margin-block: 0.5lh;
     }
@@ -42,6 +46,7 @@
     }
 
     .underline {
+      /*text-decoration: underline 4px var(--color-surface-highlight);*/
       position: relative;
       display: inline-block;
       >span {
@@ -50,9 +55,10 @@
       }
     }
 .underline::before {
+
       content: "";
       position: absolute;
-      bottom: 0.05em;
+      bottom: 0.09rlh;
       min-width: 100vw;
       min-height: 4px;
       background: var(--color-surface-highlight);
