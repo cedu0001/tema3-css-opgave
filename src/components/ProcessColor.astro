@@ -1,0 +1,134 @@
+---
+import "../styles/main.css";
+import DynamicIcon from "@helpers/DynamicIcon.astro";
+import DynamicImage from "@assets/images/Image3.png";
+import { Image } from "astro:assets";
+---
+
+<section class="grid_1-1">
+	<div>
+		<p id="eyebrow">PROCESS</p>
+		<h3>Contact Us. It’s Easy.</h3>
+		<p>
+			Leverage agile frameworks to provide a robust synopsis for high
+			level overviews. Iterative approaches to corporate strategy foster
+			collaborative.
+		</p>
+
+		<div class="flex">
+			<div class="icon" id="phone">
+				<DynamicIcon name="phone" width={22} height={22} />
+			</div>
+			<div>
+				<p>Call Today</p>
+				<p class="p-bold">+1 800 100 900</p>
+			</div>
+		</div>
+
+		<div class="flex">
+			<div class="icon" id="clock">
+				<DynamicIcon name="clock" width={22} height={22} />
+			</div>
+			<div>
+				<p>Monday To Friday</p>
+				<p class="p-bold">9AM - 5PM</p>
+			</div>
+		</div>
+
+		<div class="flex">
+			<div class="icon" id="pin">
+				<DynamicIcon name="pin" width={22} height={22} />
+			</div>
+			<div>
+				<p>USA Office</p>
+				<p class="p-bold">195 Devonshire St Boston, MA 02110</p>
+			</div>
+		</div>
+	</div>
+
+	<figure>
+		<Image src={DynamicImage} alt="" />
+	</figure>
+</section>
+
+<style>
+	@layer components {
+		.grid_1-1 {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--space-l);
+			margin-block: var(--space-l);
+		}
+
+		#eyebrow {
+			color: var(--color-text);
+		}
+
+		figure {
+			position: relative;
+			isolation: isolate;
+			align-content: center;
+			margin-top: var(--space-l);
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: -1rlh;
+				left: -2rlh;
+				height: 150px;
+				width: 250px;
+				background-color: var(--color-ui-secondary);
+				z-index: -1;
+				border-radius: var(--border-20);
+			}
+		}
+
+		.flex {
+			display: flex;
+			flex-direction: row;
+			margin-block: var(--space-l);
+		}
+
+		.icon {
+			padding: 10px;
+			width: 50px;
+			height: 50px;
+			border-radius: var(--border-42);
+			width: fit-content;
+			margin-right: var(--space-m);
+			svg {
+				width: 30px;
+				height: 30px;
+			}
+		}
+
+		.p-bold {
+			font-size: var(--step-1);
+			color: var(--color-text);
+			font-family: cabin-bold;
+		}
+		#phone {
+			background-color: hsl(
+				from var(--color-yellow-600) h s calc(l + 20)
+			);
+			color: var(--color-yellow-600);
+		}
+
+		#clock {
+			background-color: hsl(from var(--color-green-600) h s calc(l + 30));
+			color: var(--color-green-600);
+		}
+
+		#pin {
+			background-color: hsl(
+				from var(--color-neutrals-400) h s calc(l + 30)
+			);
+			color: var(--color-neutrals-900);
+		}
+
+         @media (width < 900px) {
+            .grid_1-1{
+                display: grid;
+                grid-template-columns: 1fr;
+                }
+	    }
+</style>
