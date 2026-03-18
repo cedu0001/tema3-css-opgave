@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Hero from "@components/Hero.astro";
 import CoreValues from "@components/CoreValues.astro";
 import WhatToExpect from "@components/WhatToExpect.astro";
+import ExperienceSection from "@components/ExperienceSection.astro";
 ---
 
 <Layout>
@@ -10,12 +11,5 @@ import WhatToExpect from "@components/WhatToExpect.astro";
   <WhatToExpect />
   <CoreValues />
   <CoreValues theme="light" />
-import ExperienceSection from "@components/ExperienceSection.astro";
----
-
-<Layout>
-	<Hero />
-	<CoreValues />
-	<CoreValues theme="light" />
-	<ExperienceSection />
+  <ExperienceSection />
 </Layout>
