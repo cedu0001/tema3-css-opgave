@@ -3,64 +3,63 @@ import FAQ from "@data/faq.json";
 import PlusIcon from "@icons/plus.svg";
 ---
 
-     {
-    FAQ.faq.map((qa) => (
-        <details name="faq">
-      <summary>
-        <span>
-            <h4>{qa.question}</h3>
-                <PlusIcon class="plusIcon"/>
-        </span>
-      </summary>
-      <div class="answer">
-            <p>{qa.answer}</p>
-      </div>
-      </details>
-    ))
-  }
+{
+	FAQ.faq.map((qa) => (
+		<details name="faq">
+			<summary>
+				<span>
+					<h4>{qa.question}</h4>
+					<PlusIcon class="plusIcon" alt="plus icon" />
+				</span>
+			</summary>
+			<div class="answer">
+				<p>{qa.answer}</p>
+			</div>
+		</details>
+	))
+}
 
 <style>
-    @layer components {
-        @supports (interpolate-size: allow-keywords) {
-            html {
-            interpolate-size: allow-keywords;
-        }
-        details::details-content {
-    block-size: 0;
-    overflow: hidden;
-    transition: block-size 0.3s ease;
-  }
+	@layer components {
+		@supports (interpolate-size: allow-keywords) {
+			html {
+				interpolate-size: allow-keywords;
+			}
+			details::details-content {
+				block-size: 0;
+				overflow: hidden;
+				transition: block-size 0.3s ease;
+			}
 
-  details[open]::details-content {
-    block-size: auto;
-  }
-        }
-        details {
-            width: 100%;
-            border-top: 1px solid var(--color-surface-tertiary);
-            padding: var(--space-s);
-            span {
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-
-        }
-        .plusIcon {
-            margin-left: var(--space-xl);
-        }
-        .answer {
-            margin-top: var(--space-s);
-            max-width: 90%;
-        }
-        summary {
-            list-style: none;
-        }
-        summary::-webkit-details-marker {
-            display: none;
-        }
-        }
-        details[open] {
-        --r: z 90deg;
-        }
-    }
+			details[open]::details-content {
+				block-size: auto;
+			}
+		}
+		details {
+			width: 100%;
+			border-top: 1px solid var(--color-surface-tertiary);
+			padding: var(--space-s);
+			span {
+				display: flex;
+				justify-content: space-between;
+				cursor: pointer;
+			}
+			.plusIcon {
+				margin-left: var(--space-xl);
+			}
+			.answer {
+				margin-top: var(--space-s);
+				max-width: 90%;
+			}
+			summary {
+				list-style: none;
+			}
+			summary::-webkit-details-marker {
+				display: none;
+			}
+		}
+		details[open] {
+			--r: z 90deg;
+		}
+	}
 </style>

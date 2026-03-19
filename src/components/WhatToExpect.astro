@@ -5,73 +5,87 @@ import { Image } from "astro:assets";
 ---
 
 <article class="WhatToExpect-article">
-  <figure><Image src={ImageWTE} alt="" /></figure>
-  <section class="wwwy-content">
-    <p>WE'LL WORK WITH YOU</p>
-    <h2>What To Expect</h2>
-    <p>
-      Our collaboration is built on transparency, efficiency, and measurable
-      results. Together, we create strategies tailored to your unique needs and
-      goals.
-    </p>
-    <span
-      ><DynamicIcon name="checkmark" class="checkmark" />
-      <p>
-        Collaborate to build actionable strategies that drive sustainable growth
-        and deliver tangible outcomes.
-      </p></span
-    >
-    <span
-      ><DynamicIcon name="checkmark" class="checkmark" />
-      <p>
-        Identify opportunities to optimize processes and implement impactful
-        solutions with measurable results.
-      </p></span
-    >
-  </section>
+	<figure>
+		<Image
+			src={ImageWTE}
+			alt="three people sitting at a table, looking engaged in business"
+		/>
+	</figure>
+	<section class="wwwy-content">
+		<p>WE'LL WORK WITH YOU</p>
+		<h2>What To Expect</h2>
+		<p>
+			Our collaboration is built on transparency, efficiency, and
+			measurable results. Together, we create strategies tailored to your
+			unique needs and goals.
+		</p>
+		<span
+			><DynamicIcon
+				name="checkmark"
+				class="checkmark"
+				alt="checkmark icon"
+			/>
+			<p>
+				Collaborate to build actionable strategies that drive
+				sustainable growth and deliver tangible outcomes.
+			</p></span
+		>
+		<span
+			><DynamicIcon
+				name="checkmark"
+				class="checkmark"
+				alt="checkmark icon"
+			/>
+			<p>
+				Identify opportunities to optimize processes and implement
+				impactful solutions with measurable results.
+			</p></span
+		>
+	</section>
 </article>
 
 <style>
-  @layer components {
-    article {
-      margin-block: 4rlh;
-      display: grid;
-      grid-template-columns: subgrid;
-      span {
-        display: flex;
-        margin-top: var(--space-s);
-        p {
-          margin-left: var(--space-s);
-        }
-      }
-      .wwwy-content {
-        grid-column: 2/-1;
-        margin-left: var(--space-l);
-        svg {
-          min-width: 40px;
-          color: var(--color-ui-secondary-alternative);
-        }
-      }
-    }
-    figure {
-      position: relative;
-      max-width: 500px;
-      &::before {
-        content: "";
-        position: absolute;
-        top: -2rlh;
-        left: -2rlh;
-        height: 160px;
-        width: 180px;
-        background-color: var(--color-ui-secondary);
-        z-index: -1;
-        border-radius: var(--border-20);
-      }
-    }
-    @media (width < 700px) {
-        article {
-          display: grid;
-          grid-template-columns: 1fr;}
-      }
-  }
+	@layer components {
+		article {
+			margin-block: 4rlh;
+			display: grid;
+			grid-template-columns: subgrid;
+			span {
+				display: flex;
+				margin-top: var(--space-s);
+				p {
+					margin-left: var(--space-s);
+				}
+			}
+			.wwwy-content {
+				grid-column: 2/-1;
+				margin-left: var(--space-l);
+				svg {
+					min-width: 40px;
+					color: var(--color-ui-secondary-alternative);
+				}
+			}
+		}
+		figure {
+			position: relative;
+			max-width: 500px;
+			&::before {
+				content: "";
+				position: absolute;
+				top: -2rlh;
+				left: -2rlh;
+				height: 160px;
+				width: 180px;
+				background-color: var(--color-ui-secondary);
+				z-index: -1;
+				border-radius: var(--border-20);
+			}
+		}
+		@media (width < 700px) {
+			article {
+				display: grid;
+				grid-template-columns: 1fr;
+			}
+		}
+	}
 </style>

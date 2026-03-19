@@ -3,109 +3,109 @@
 import DynamicImage from "@components/helpers/DynamicImage.astro";
 import caseStudy from "@data/caseStudy.json";
 const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
-import CTA from "@components/CtaVariant.astro"
+import CTA from "@components/CtaVariant.astro";
 ---
 
 <article>
-  <section>
-    <DynamicImage imagePath={image} altText={caseName} />
-    <div class="case-details">
-      <dl>
-        <div>
-          <dt>Case Name</dt>
-          <dd>{caseName}</dd>
-        </div>
-        <div>
-          <dt>Category</dt>
-          <dd class="category">{category}</dd>
-        </div>
-        <div>
-          <dt>Date</dt>
-          <dd class="date">{date}</dd>
-        </div>
-      </dl>
-      <CTA href="#0" class="button">{buttonLabel}</>
-    </div>
-  </section>
-  {
-    caseStudy.sections.map((section) => (
-      <section class="flow">
-        {caseStudy.sections[0] === section ? (
-          <h2>{section.title}</h2>
-        ) : (
-          <h3>{section.title}</h3>
-        )}
+	<section>
+		<DynamicImage imagePath={image} altText={caseName} />
+		<div class="case-details">
+			<dl>
+				<div>
+					<dt>Case Name</dt>
+					<dd>{caseName}</dd>
+				</div>
+				<div>
+					<dt>Category</dt>
+					<dd class="category">{category}</dd>
+				</div>
+				<div>
+					<dt>Date</dt>
+					<dd class="date">{date}</dd>
+				</div>
+			</dl>
+			<CTA href="#0" class="button">{buttonLabel}</CTA>
+		</div>
+	</section>
+	{
+		caseStudy.sections.map((section) => (
+			<section class="flow">
+				{caseStudy.sections[0] === section ? (
+					<h2>{section.title}</h2>
+				) : (
+					<h3>{section.title}</h3>
+				)}
 
-        {Array.isArray(section.content) ? (
-          <>
-            {section.content.map((item) => (
-              <p>{item}</p>
-            ))}
-          </>
-        ) : (
-          <p>{section.content}</p>
-        )}
-        {section.highlights && (
-          <ul>
-            {section.highlights.map((highlight) => (
-              <li>{highlight}</li>
-            ))}
-          </ul>
-        )}
-        {section.image && (
-          <DynamicImage
-            imagePath={section.image}
-            altText={section.title}
-            width={600}
-            height={400}
-          />
-        )}
-      </section>
-    ))
-  }
+				{Array.isArray(section.content) ? (
+					<>
+						{section.content.map((item) => (
+							<p>{item}</p>
+						))}
+					</>
+				) : (
+					<p>{section.content}</p>
+				)}
+				{section.highlights && (
+					<ul>
+						{section.highlights.map((highlight) => (
+							<li>{highlight}</li>
+						))}
+					</ul>
+				)}
+				{section.image && (
+					<DynamicImage
+						imagePath={section.image}
+						altText={section.title}
+						width={600}
+						height={400}
+					/>
+				)}
+			</section>
+		))
+	}
 </article>
 
 <style>
-  @layer components {
-    article {
-      margin: var(--space-s);
-    }
-    .case-details {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-m);
-      background: var(--color-ui-primary);
-      border-radius: var(--border-20);
-      max-width: 90%;
-      margin: auto;
-      color: var(--color-neutrals-100);
-      margin-top: -2rlh;
-    }
-    .button {
-      color: var(--color-neutrals-100);
-    }
-    dl {
-      display: flex;
-      & > div {
-        margin: var(--space-s);
-      }
-    }
-    dt {
-      font-family: cabin-semibold;
-    }
-    section:not(.flow) {
-      container-type: inline-size;
-      img {
-        border-radius: var(--border-20);
-      }
-      @container (width < 700px) {
-        .case-details {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    }
-  }
+	@layer components {
+		article {
+			margin: var(--space-s);
+		}
+		.case-details {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: var(--space-m);
+			background: var(--color-ui-primary);
+			border-radius: var(--border-20);
+			max-width: 90%;
+			margin: auto;
+			color: var(--color-neutrals-100);
+			margin-top: -2rlh;
+		}
+		.button {
+			color: var(--color-neutrals-100);
+		}
+		dl {
+			display: flex;
+			& > div {
+				margin: var(--space-s);
+			}
+		}
+		dt {
+			font-family: cabin-semibold;
+		}
+		section:not(.flow) {
+			container-type: inline-size;
+			img {
+				border-radius: var(--border-20);
+			}
+			@container (width < 700px) {
+				.case-details {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
 </style>
